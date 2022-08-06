@@ -11,6 +11,7 @@ import {useState} from 'react';
 import {getToken} from '../lib/auth';
 import {useRouter} from 'next/router';
 import {useAuthStore} from '../store/auth';
+import Head from 'next/head';
 
 export default function Login() {
     const [username, setUsername] = useState('');
@@ -29,6 +30,9 @@ export default function Login() {
     };
     return (
         <Container pt={10}>
+            <Head>
+                <title>Login</title>
+            </Head>
             <FormControl isRequired>
                 <FormLabel htmlFor="username">Username</FormLabel>
                 <Input id="username" placeholder="Enter username" value={username}

@@ -5,6 +5,8 @@ import Link from 'next/link';
 import {useAuth} from '../context/AuthContext';
 import {useEffect, useState} from 'react';
 import {createItemData} from '../lib/itemUtil';
+import Head from 'next/head';
+import {ColorModeSwitcher} from '../components/ColorModeSwitcher';
 
 export default function Home({items}) {
     const {authenticated, logout} = useAuth();
@@ -28,6 +30,10 @@ export default function Home({items}) {
     }
     return (
         <Box pt={10}>
+            <ColorModeSwitcher />
+            <Head>
+                <title>Bread&apos;s price guide</title>
+            </Head>
             <Center flexDir={'column'} gap={3}>
                 <Heading size={'xl'}>Bread&apos;s Prices</Heading>
                 {authenticated ? (
